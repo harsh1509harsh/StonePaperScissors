@@ -74,19 +74,20 @@ while 1:
         UserChoose = Moves[UserChoose-1]
         ComChoose = random.randint(0,2)
         ComChoose = Moves[ComChoose]
+        print()
         if UserChoose == ComChoose:
-            mesgdcrt.SectionMessage("'\nBoth Choose the same option\n it's a Draw\n")
+            mesgdcrt.SectionMessage("Both Choose the same option\n it's a Draw\n")
         else:
             if( UserChoose == "Stone" and ComChoose == "Scissors") or (UserChoose == "Paper" and ComChoose == "Stone") or (UserChoose == "Scissors" and ComChoose == "Paper") :
-                mesgdcrt.SuccessMessage('\n' + UserChoose + " vs. " + ComChoose + "\nUser Wins\n")
+                mesgdcrt.SuccessMessage(UserChoose + " vs. " + ComChoose + "\nUser Wins\n")
                 Points[0] += 1
             else:
-                mesgdcrt.FailureMessage('\n' + UserChoose + " vs. " + ComChoose + "\nComputer Wins\n")
+                mesgdcrt.FailureMessage(UserChoose + " vs. " + ComChoose + "\nComputer Wins\n")
                 Points[1] += 1
         if max(Points) == 3:
             break
     except:
-        mesgdcrt.WarningMessage('\nPlease choose only from the repective\nnumbers given in front of the options :-)\n')
+        mesgdcrt.WarningMessage('Please choose only from the repective\nnumbers given in front of the options :-)\n')
 mesgdcrt.GeneralMessage(f'\nUser Points: {Points[0]}\nComputer Points: {Points[1]}\n')
 if Points[0]<Points[1]:
     mesgdcrt.FailureMessage(f'Computer wins by {Points[1]-Points[0]} points')
